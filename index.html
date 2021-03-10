@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> The Final Countdown </title>
+</head>
+<body>
+<style>
+body{
+margin: 0;
+padding: 0;
+font-family: sans-serif;
+}
+.counter{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+color: #000;
+text-align: center;
+}
+</style>
+
+<div class="counter">
+<img style="display:flex;width:700px; height:700px; opacity:0.4; position:absolute; top:50%; left:50%;transform: translate(-50%,-50%); " src="boun_logo.png" >
+<h1>The Final Countdown</h1>
+<h2 id="counter">The Final Countdown</h2>
+</div>
+<iframe width="0" height="0" src="https://www.youtube.com/embed/TcJ-wNmazHQ?rel=0&autoplay=1&start=13" frameborder="0" gesture="media" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("July 16, 2021 00:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="counter"
+  document.getElementById("counter").innerHTML = days + " Days " + hours + " Hours "
+  + minutes + " Minutes " + seconds + " Seconds Left";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("counter").innerHTML = "You Survived!";
+  }
+}, 1000);
+</script>
+</body>
+</html>
